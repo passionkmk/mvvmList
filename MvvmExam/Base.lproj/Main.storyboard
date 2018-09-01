@@ -12,7 +12,7 @@
         <!--CollectionView-->
         <scene sceneID="QP5-w3-9v0">
             <objects>
-                <viewController id="jjH-vT-cOz" sceneMemberID="viewController">
+                <viewController id="jjH-vT-cOz" customClass="CollectionViewController" customModule="MvvmExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVG-4I-MVp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,10 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jjH-vT-cOz" id="tlY-Ou-CCf"/>
+                                    <outlet property="delegate" destination="jjH-vT-cOz" id="fJk-di-7WU"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,6 +46,9 @@
                     <navigationItem key="navigationItem" title="CollectionView" id="1QT-AO-V71">
                         <barButtonItem key="rightBarButtonItem" title="List" id="NdD-dy-COa"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="3sU-MW-ovQ" id="z3Z-jm-b9N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyA-Qz-zxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +57,7 @@
         <!--TableView-->
         <scene sceneID="DAy-Wa-AjU">
             <objects>
-                <viewController id="1I8-iP-0Kx" sceneMemberID="viewController">
+                <viewController id="1I8-iP-0Kx" customClass="TableViewController" customModule="MvvmExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ek-66-Olx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +65,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOD-hZ-LsO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1I8-iP-0Kx" id="kkO-AA-IKY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,6 +81,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="TableView" image="TableViewIcon" id="nlm-gm-8gm"/>
                     <navigationItem key="navigationItem" title="TableView" id="JL3-ny-l6m"/>
+                    <connections>
+                        <outlet property="tableView" destination="pOD-hZ-LsO" id="wW2-Af-QtF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37C-I2-C2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

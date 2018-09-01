@@ -14,6 +14,8 @@
 		7D82A912213A669000F7957F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D82A910213A669000F7957F /* LaunchScreen.storyboard */; };
 		7D82A91D213A669000F7957F /* MvvmExamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82A91C213A669000F7957F /* MvvmExamTests.swift */; };
 		7D82A928213A669000F7957F /* MvvmExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82A927213A669000F7957F /* MvvmExamUITests.swift */; };
+		7D82A936213A7BAD00F7957F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82A935213A7BAD00F7957F /* TableViewController.swift */; };
+		7D82A938213A7BC400F7957F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82A937213A7BC400F7957F /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		7D82A923213A669000F7957F /* MvvmExamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MvvmExamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D82A927213A669000F7957F /* MvvmExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MvvmExamUITests.swift; sourceTree = "<group>"; };
 		7D82A929213A669000F7957F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D82A935213A7BAD00F7957F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7D82A937213A7BC400F7957F /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		A9BB54A666E36C9698113A00 /* Pods_MvvmExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MvvmExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F4E4A275A5799060B2D428 /* Pods-MvvmExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MvvmExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-MvvmExam/Pods-MvvmExam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 		7D82A906213A668C00F7957F /* MvvmExam */ = {
 			isa = PBXGroup;
 			children = (
+				7D82A939213A7BD000F7957F /* View */,
 				7D82A907213A668C00F7957F /* AppDelegate.swift */,
 				7D82A90B213A668D00F7957F /* Main.storyboard */,
 				7D82A90E213A669000F7957F /* Assets.xcassets */,
@@ -144,6 +149,15 @@
 				7D82A929213A669000F7957F /* Info.plist */,
 			);
 			path = MvvmExamUITests;
+			sourceTree = "<group>";
+		};
+		7D82A939213A7BD000F7957F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D82A935213A7BAD00F7957F /* TableViewController.swift */,
+				7D82A937213A7BC400F7957F /* CollectionViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D82A938213A7BC400F7957F /* CollectionViewController.swift in Sources */,
 				7D82A908213A668C00F7957F /* AppDelegate.swift in Sources */,
+				7D82A936213A7BAD00F7957F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

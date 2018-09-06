@@ -92,7 +92,7 @@
         <!--App Store Search-->
         <scene sceneID="xB6-UM-Pt0">
             <objects>
-                <viewController id="Udc-pe-CKu" sceneMemberID="viewController">
+                <viewController id="Udc-pe-CKu" customClass="SearchViewController" customModule="MvvmExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ItQ-qs-6Gi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,6 +106,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3i-Sj-MaQ">
                                 <rect key="frame" x="16" y="118" width="343" height="30"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="search:" destination="Udc-pe-CKu" eventType="touchUpInside" id="aqz-0W-FOb"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-bC-DbZ">
                                 <rect key="frame" x="339" y="123" width="20" height="20"/>
@@ -126,6 +129,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="App Store Search" id="pr1-yC-Xdu"/>
                     <connections>
+                        <outlet property="indicator" destination="gq4-bC-DbZ" id="sER-lN-vWb"/>
+                        <outlet property="searchButon" destination="F3i-Sj-MaQ" id="l71-dX-8Ee"/>
+                        <outlet property="searchTextfield" destination="Alv-JO-Z46" id="L9f-5b-RMV"/>
                         <segue destination="sg0-aN-XDN" kind="push" id="Y42-bt-fjb"/>
                     </connections>
                 </viewController>

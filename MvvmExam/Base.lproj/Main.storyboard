@@ -89,6 +89,50 @@
             </objects>
             <point key="canvasLocation" x="562" y="-1045"/>
         </scene>
+        <!--App Store Search-->
+        <scene sceneID="xB6-UM-Pt0">
+            <objects>
+                <viewController id="Udc-pe-CKu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ItQ-qs-6Gi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the search keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Alv-JO-Z46">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3i-Sj-MaQ">
+                                <rect key="frame" x="16" y="118" width="343" height="30"/>
+                                <state key="normal" title="Search"/>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-bC-DbZ">
+                                <rect key="frame" x="339" y="123" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F3i-Sj-MaQ" firstAttribute="leading" secondItem="MnU-46-nvI" secondAttribute="leading" constant="16" id="0sY-qO-OU9"/>
+                            <constraint firstItem="F3i-Sj-MaQ" firstAttribute="top" secondItem="Alv-JO-Z46" secondAttribute="bottom" constant="8" id="1zh-JG-H7b"/>
+                            <constraint firstItem="Alv-JO-Z46" firstAttribute="leading" secondItem="MnU-46-nvI" secondAttribute="leading" constant="16" id="D3d-hy-seZ"/>
+                            <constraint firstItem="Alv-JO-Z46" firstAttribute="top" secondItem="MnU-46-nvI" secondAttribute="top" constant="16" id="DXt-rE-1Gk"/>
+                            <constraint firstItem="gq4-bC-DbZ" firstAttribute="trailing" secondItem="F3i-Sj-MaQ" secondAttribute="trailing" id="F5B-xe-g5N"/>
+                            <constraint firstItem="gq4-bC-DbZ" firstAttribute="centerY" secondItem="F3i-Sj-MaQ" secondAttribute="centerY" id="Qlk-Aj-JDv"/>
+                            <constraint firstItem="F3i-Sj-MaQ" firstAttribute="centerX" secondItem="ItQ-qs-6Gi" secondAttribute="centerX" id="lHJ-EY-Ovr"/>
+                            <constraint firstItem="Alv-JO-Z46" firstAttribute="centerX" secondItem="ItQ-qs-6Gi" secondAttribute="centerX" id="tPV-n7-yEc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MnU-46-nvI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="App Store Search" id="pr1-yC-Xdu"/>
+                    <connections>
+                        <segue destination="sg0-aN-XDN" kind="push" id="Y42-bt-fjb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3og-oN-Kqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1593" y="-710"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfI-n6-n9X">
             <objects>
@@ -101,12 +145,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="sg0-aN-XDN" kind="relationship" relationship="rootViewController" id="1P5-vb-WCq"/>
+                        <segue destination="Udc-pe-CKu" kind="relationship" relationship="rootViewController" id="21u-yZ-vVO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgN-Pe-k4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1446" y="-710"/>
+            <point key="canvasLocation" x="-2836" y="-710"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZMk-6z-Uy2">

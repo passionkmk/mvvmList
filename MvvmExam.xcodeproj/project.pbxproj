@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B3FA8D22140ECBA002CEA1A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FA8D12140ECBA002CEA1A /* SearchViewController.swift */; };
 		0B3FA8DC214104D0002CEA1A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FA8DA214104D0002CEA1A /* TableViewCell.swift */; };
 		0B3FA8DD214104D0002CEA1A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3FA8DB214104D0002CEA1A /* TableViewCell.xib */; };
 		0B3FA8E0214104E5002CEA1A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FA8DE214104E5002CEA1A /* CollectionViewCell.swift */; };
@@ -41,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B3FA8D12140ECBA002CEA1A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0B3FA8DA214104D0002CEA1A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0B3FA8DB214104D0002CEA1A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		0B3FA8DE214104E5002CEA1A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 		7D82A939213A7BD000F7957F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0B3FA8D12140ECBA002CEA1A /* SearchViewController.swift */,
 				7D82A935213A7BAD00F7957F /* TableViewController.swift */,
 				7D82A937213A7BC400F7957F /* CollectionViewController.swift */,
 			);
@@ -381,7 +378,6 @@
 				7D82A938213A7BC400F7957F /* CollectionViewController.swift in Sources */,
 				0B3FA8E0214104E5002CEA1A /* CollectionViewCell.swift in Sources */,
 				7D82A908213A668C00F7957F /* AppDelegate.swift in Sources */,
-				0B3FA8D22140ECBA002CEA1A /* SearchViewController.swift in Sources */,
 				7D82A936213A7BAD00F7957F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,7 @@
 		0B3FA8E0214104E5002CEA1A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FA8DE214104E5002CEA1A /* CollectionViewCell.swift */; };
 		0B3FA8E1214104E5002CEA1A /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3FA8DF214104E5002CEA1A /* CollectionViewCell.xib */; };
 		42A0260818444065103841AC /* Pods_MvvmExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BB54A666E36C9698113A00 /* Pods_MvvmExam.framework */; };
+		7BB5C5D121B6C55E004181CF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5C5D021B6C55E004181CF /* AppData.swift */; };
 		7D82A908213A668C00F7957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82A907213A668C00F7957F /* AppDelegate.swift */; };
 		7D82A90D213A668D00F7957F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D82A90B213A668D00F7957F /* Main.storyboard */; };
 		7D82A90F213A669000F7957F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D82A90E213A669000F7957F /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		0B3FA8DE214104E5002CEA1A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0B3FA8DF214104E5002CEA1A /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		10E6E0ADED4054BA53D977B0 /* Pods-MvvmExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MvvmExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MvvmExam/Pods-MvvmExam.debug.xcconfig"; sourceTree = "<group>"; };
+		7BB5C5D021B6C55E004181CF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		7D82A904213A668C00F7957F /* MvvmExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MvvmExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D82A907213A668C00F7957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D82A90C213A668D00F7957F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7BB5C5CE21B6B77C004181CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7BB5C5CF21B6B79B004181CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BB5C5D021B6C55E004181CF /* AppData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7D82A8FB213A668C00F7957F = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +161,8 @@
 		7D82A906213A668C00F7957F /* MvvmExam */ = {
 			isa = PBXGroup;
 			children = (
-				0B3FA8D32140F3AE002CEA1A /* Cell */,
+				7BB5C5CF21B6B79B004181CF /* Model */,
+				7BB5C5CE21B6B77C004181CF /* ViewModel */,
 				7D82A939213A7BD000F7957F /* View */,
 				7D82A907213A668C00F7957F /* AppDelegate.swift */,
 				7D82A90B213A668D00F7957F /* Main.storyboard */,
@@ -176,9 +194,10 @@
 		7D82A939213A7BD000F7957F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B3FA8D32140F3AE002CEA1A /* Cell */,
+				0B37018E218975D5001F66F1 /* SearchTabBarController.swift */,
 				7D82A935213A7BAD00F7957F /* TableViewController.swift */,
 				7D82A937213A7BC400F7957F /* CollectionViewController.swift */,
-				0B37018E218975D5001F66F1 /* SearchTabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,6 +402,7 @@
 				7D82A908213A668C00F7957F /* AppDelegate.swift in Sources */,
 				7D82A936213A7BAD00F7957F /* TableViewController.swift in Sources */,
 				0B37018F218975D5001F66F1 /* SearchTabBarController.swift in Sources */,
+				7BB5C5D121B6C55E004181CF /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

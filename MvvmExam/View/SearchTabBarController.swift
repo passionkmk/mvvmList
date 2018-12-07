@@ -8,6 +8,12 @@
 
 import UIKit
 
+/*
+protocol SearchDelegate {
+    func searchComplete(datas: [AppData])
+}
+ */
+
 // MARK: - Overrides
 class SearchTabBarController: UITabBarController {
     @IBOutlet weak var textField: UITextField!
@@ -27,6 +33,20 @@ class SearchTabBarController: UITabBarController {
     }
 }
 
+// MARK: - Functions
+extension SearchTabBarController {
+    func search(keyword: String) {
+        Request.search(with: keyword, success: { (json) in
+            let datas = json.arrayValue.map { AppData(data: $0) }
+            print(datas)
+        }) { (error, message) in
+            if let message = message {
+                print(message)
+            }
+        }
+    }
+}
+
 // MARK: - UITextfiled Delegate
 extension SearchTabBarController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -36,7 +56,7 @@ extension SearchTabBarController: UITextFieldDelegate {
         
         let trimText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimText.count > 0 {
-            // TODO: - goSearch
+            self.search(keyword: trimText)
         }
         else {
             textField.text = nil

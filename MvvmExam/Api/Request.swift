@@ -15,8 +15,9 @@ typealias FailureCompletionHandler = (_ error: Error?, _ message: String?) -> Vo
 
 open class Request {
     class func search(with keyword: String, success: @escaping  SuccessCompletionHandler, failure: @escaping FailureCompletionHandler) {
+        let url = Networking.baseURLString + Networking.Path.search.rawValue
         let parameters: [String: String] = ["term": keyword, "limit": "30", "country": "KR", "media": "software", "entity": "software", "offset": "1"]
-        Alamofire.request(Networking.baseURLString + Networking.Path.search.rawValue,
+        Alamofire.request(url,
                           method: .get,
                           parameters: parameters)
             .validate()
@@ -32,7 +33,7 @@ open class Request {
                 }
                 
                 let json = JSON(data)
-                success(json)
+                success(json["results"])
                 return
         }
     }

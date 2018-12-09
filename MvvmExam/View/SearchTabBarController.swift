@@ -8,23 +8,25 @@
 
 import UIKit
 
-/*
 protocol SearchDelegate {
     func searchComplete(datas: [AppData])
 }
- */
 
 // MARK: - Overrides
 class SearchTabBarController: UITabBarController {
     @IBOutlet weak var textField: UITextField!
     
+    var searchDelegate: SearchDelegate?
+    
     override func loadView() {
         super.loadView()
-        // TODO : - Init Nib
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.textField.becomeFirstResponder()
     }
 
@@ -38,7 +40,7 @@ extension SearchTabBarController {
     func search(keyword: String) {
         Request.search(with: keyword, success: { (json) in
             let datas = json.arrayValue.map { AppData(data: $0) }
-            print(datas)
+            self.searchDelegate?.searchComplete(datas: datas)
         }) { (error, message) in
             if let message = message {
                 print(message)

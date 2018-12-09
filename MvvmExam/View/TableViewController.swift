@@ -12,12 +12,17 @@ import UIKit
 class TableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var models: [TableViewCellModel] = []
+    var searchTabbarController: SearchTabBarController?
+    var viewModels: [TableViewCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(nib: .tableViewCell)
         self.tableView.rowHeight = 44.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,16 +34,25 @@ class TableViewController: UIViewController {
     }
 }
 
-// MARK: - Search Delegate
+// MARK: - Functions
+extension TableViewController {
+    func loadData() {
+        guard let model = self.searchTabbarController?.dataModel else {
+            return
+        }
+        self.viewModels = model.datas.map { TableViewCellModel(with: $0) }
+        self.tableView.reloadData()
+    }
+}
 
 // MARK: - UITableView Datasource
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.models.count
+        return self.viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return self.models[indexPath.row].loadCell(with: tableView, indexPath: indexPath)
+        return self.viewModels[indexPath.row].loadCell(with: tableView, indexPath: indexPath)
     }
 }
 

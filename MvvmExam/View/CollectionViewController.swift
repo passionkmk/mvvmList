@@ -12,11 +12,16 @@ import UIKit
 class CollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var models: [CollectionViewCellModel] = []
+    var searchTabbarController: SearchTabBarController?
+    var viewModels: [CollectionViewCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.register(nib: .collectionViewCell)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,14 +34,25 @@ class CollectionViewController: UIViewController {
     }
 }
 
+// MARK: - Functions
+extension CollectionViewController {
+    func loadData() {
+        guard let model = self.searchTabbarController?.dataModel else {
+            return
+        }
+        self.viewModels = model.datas.map { CollectionViewCellModel(with: $0) }
+        self.collectionView.reloadData()
+    }
+}
+
 // MARK: - UICollectionView Datasource
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.models.count
+        return self.viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.models[indexPath.item].loadCell(with: collectionView, indexPath:indexPath)
+        return self.viewModels[indexPath.item].loadCell(with: collectionView, indexPath:indexPath)
     }
 }
 

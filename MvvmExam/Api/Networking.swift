@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Networking {
+public struct Networking {
     static let timeoutInterval: TimeInterval = 10.0
     static let retryCount: Int = 3
     static let baseURLString: String = "https://itunes.apple.com"

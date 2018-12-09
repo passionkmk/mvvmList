@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: - Overrides
 class CollectionViewCell: UICollectionViewCell {
@@ -16,7 +17,22 @@ class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
+    
+    override func prepareForReuse() {
+        self.thumbnailImageView.kf.cancelDownloadTask()
+    }
+}
 
+extension CollectionViewCell {
+    func loadCell(model: CollectionViewCellModel) {
+        let data = model.cellData
+        self.titleLabel.text = data.name
+        self.subTitleLabel.text = data.develeoperName
+        self.thumbnailImageView.kf.setImage(with: URL(string: data.largeThumbnailUrl),
+                                            placeholder: nil,
+                                            options: [.transition(ImageTransition.fade(0.3))],
+                                            progressBlock: nil,
+                                            completionHandler: nil)
+    }
 }

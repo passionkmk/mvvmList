@@ -13,7 +13,7 @@ import SwiftyJSON
 typealias SuccessCompletionHandler = (_ json: JSON) -> Void
 typealias FailureCompletionHandler = (_ error: Error?, _ message: String?) -> Void
 
-open class Request {
+public class Request {
     class func search(with keyword: String, success: @escaping  SuccessCompletionHandler, failure: @escaping FailureCompletionHandler) {
         let url = Networking.baseURLString + Networking.Path.search.rawValue
         let parameters: [String: String] = ["term": keyword, "limit": "30", "country": "KR", "media": "software", "entity": "software", "offset": "1"]

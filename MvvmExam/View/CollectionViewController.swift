@@ -12,9 +12,11 @@ import UIKit
 class CollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var models: [CollectionViewCellModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.collectionView.register(nib: .collectionViewCell)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,24 +29,22 @@ class CollectionViewController: UIViewController {
     }
 }
 
-// MARK: - Functions
-extension CollectionViewController {
-    
-}
-
 // MARK: - UICollectionView Datasource
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        return self.models[indexPath.item].loadCell(with: collectionView, indexPath:indexPath)
     }
 }
 
 // MARK: - UICollectionView Delegates
-extension CollectionViewController: UICollectionViewDelegate {
-    
+extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let side = self.view.frame.size.width / 2.0
+        return CGSize(width: side, height: side)
+    }
 }
 

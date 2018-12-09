@@ -21,3 +21,8 @@ extension UITableView {
     }
 }
 
+extension UICollectionView {
+    public func register(nib: Nib) {
+        self.register(UINib(nibName: nib.rawValue, bundle: nil), forCellWithReuseIdentifier: nib.rawValue)
+    }
+}

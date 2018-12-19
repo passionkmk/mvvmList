@@ -12,7 +12,6 @@ import UIKit
 class CollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var searchTabbarController: SearchTabBarController?
     var viewModels: [CollectionViewCellModel] = []
     
     override func viewDidLoad() {
@@ -20,8 +19,11 @@ class CollectionViewController: UIViewController {
         self.collectionView.register(nib: .collectionViewCell)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.loadData()
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(CollectionViewController.searchRequestDone(notification:)),
+                                               name: Notification.Name(Networking.notificationName.search.rawValue),
+                                               object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,15 +34,31 @@ class CollectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
  
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
+
+// MARK: - Notification
+extension CollectionViewController {
+    @objc func searchRequestDone(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else {
+            return
+        }
+        
+        if let datas = userInfo["data"] as? [AppData] {
+            self.loadData(datas)
+        }
+    }
+}
+
+
 
 // MARK: - Functions
 extension CollectionViewController {
-    func loadData() {
-        guard let model = self.searchTabbarController?.dataModel else {
-            return
-        }
-        self.viewModels = model.datas.map { CollectionViewCellModel(with: $0) }
+    func loadData(_ datas: [AppData]) {
+        self.viewModels = datas.map { CollectionViewCellModel(with: $0) }
         self.collectionView.reloadData()
     }
 }

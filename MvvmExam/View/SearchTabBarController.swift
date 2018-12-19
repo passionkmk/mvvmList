@@ -20,7 +20,6 @@ class SearchTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewsInit()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,43 +33,19 @@ class SearchTabBarController: UITabBarController {
 
 // MARK: - Functions
 extension SearchTabBarController {
-    func viewsInit() {
-        for viewController in self.viewControllers! {
-            if let tableViewController = viewController as? TableViewController {
-                self.tableViewController = tableViewController
-                tableViewController.searchTabbarController = self
-            }
-            
-            if let collectionViewController = viewController as? CollectionViewController {
-                self.collectionViewController = collectionViewController
-                collectionViewController.searchTabbarController = self
-            }
-        }
-    }
-    
     func search(keyword: String) {
         Request.search(with: keyword, success: { (json) in
             let datas = json.arrayValue.map { AppData(data: $0) }
-            self.dataModel.datas = datas
-            guard let selectedViewController = self.selectedViewController else {
-                return
-            }
-            
-            if let tableViewController = self.tableViewController {
-                if selectedViewController == tableViewController {
-                    tableViewController.loadData()
-                }
-            }
-            
-            if let collectionViewController = self.collectionViewController {
-                if selectedViewController == collectionViewController {
-                    collectionViewController.loadData()
-                }
-            }
+            NotificationCenter.default.post(name: Notification.Name(Networking.notificationName.search.rawValue), object: nil, userInfo: ["data": datas])
         }) { (error, message) in
             if let message = message {
                 print(message)
             }
+            
+            guard let error = error else {
+                return
+            }
+            NotificationCenter.default.post(name: Notification.Name(Networking.notificationName.search.rawValue), object: nil, userInfo: ["error": error])
         }
     }
 }

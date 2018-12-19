@@ -13,6 +13,10 @@ public struct Networking {
     static let retryCount: Int = 3
     static let baseURLString: String = "https://itunes.apple.com"
     
+    enum notificationName: String {
+        case search = "searchResultNotificationName"
+    }
+
     enum Path: String {
         case search = "/search"
     }

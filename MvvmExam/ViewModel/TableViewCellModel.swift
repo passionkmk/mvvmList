@@ -19,9 +19,7 @@ class TableViewCellModel: TableViewCellPresentation {
 
 extension TableViewCellModel {
     func loadCell(with tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Nib.tableViewCell.rawValue, for: indexPath) as? TableViewCell else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReuseableCell(ofType: TableViewCell.self, for: indexPath)
         cell.loadCell(model: self)
         return cell
     }

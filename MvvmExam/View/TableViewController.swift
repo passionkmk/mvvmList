@@ -16,7 +16,7 @@ class TableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(nib: .tableViewCell)
+        self.tableView.register(nibClass: TableViewCell.self)
         self.tableView.rowHeight = 44.0
     }
     

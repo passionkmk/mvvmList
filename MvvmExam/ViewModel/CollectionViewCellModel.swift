@@ -18,9 +18,7 @@ class CollectionViewCellModel: CollectionViewCellPresentation {
 
 extension CollectionViewCellModel {
     func loadCell(with collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Nib.collectionViewCell.rawValue, for: indexPath) as? CollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReuseableCell(ofType: CollectionViewCell.self, for: indexPath)
         cell.loadCell(model: self)
         return cell
     }

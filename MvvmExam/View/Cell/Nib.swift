@@ -8,21 +8,38 @@
 
 import UIKit
 
-// MARK: - Initialize
-public enum Nib: String {
-    case tableViewCell = "TableViewCell"
-    case collectionViewCell = "CollectionViewCell"
+public protocol Nib {
+    static var identifier: String { get }
 }
 
-// MARK: - Function
+// MARK: - Cell Nib Identifier
+extension Nib {
+    public static var identifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UITableViewCell: Nib {}
+extension UICollectionViewCell: Nib {}
+
+// MARK: - ListView Cell Resster Definition
 extension UITableView {
-    public func register(nib: Nib) {
-        self.register(UINib(nibName: nib.rawValue, bundle: nil), forCellReuseIdentifier: nib.rawValue)
+    func register<T: Nib>(nibClass: T.Type) {
+        self.register(UINib(nibName: nibClass.identifier, bundle: nil), forCellReuseIdentifier: nibClass.identifier)
+    }
+    
+    func dequeueReuseableCell<T: Nib>(ofType nibClass: T.Type, for indexPath: IndexPath) -> T {
+        return self.dequeueReusableCell(withIdentifier: nibClass.identifier, for: indexPath) as! T
     }
 }
 
 extension UICollectionView {
-    public func register(nib: Nib) {
-        self.register(UINib(nibName: nib.rawValue, bundle: nil), forCellWithReuseIdentifier: nib.rawValue)
+    func register<T: Nib>(nibClass: T.Type) {
+        self.register(UINib(nibName: nibClass.identifier, bundle: nil), forCellWithReuseIdentifier: nibClass.identifier)
+    }
+    
+    func dequeueReuseableCell<T: Nib>(ofType nibClass: T.Type, for indexPath: IndexPath) -> T {
+        return self.dequeueReusableCell(withReuseIdentifier: nibClass.identifier, for: indexPath) as! T
     }
 }
+

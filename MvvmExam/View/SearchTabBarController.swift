@@ -14,7 +14,6 @@ class SearchTabBarController: UITabBarController {
     
     internal var dataModel = AppDataModel()
     
-    // MEMO: - Data Sharing에 대한 연구가 필요 (KVO, Delegate..)
     weak var tableViewController: TableViewController?
     weak var collectionViewController: CollectionViewController?
     

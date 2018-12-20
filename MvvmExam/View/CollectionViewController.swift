@@ -16,7 +16,7 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(nib: .collectionViewCell)
+        self.collectionView.register(nibClass: CollectionViewCell.self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
